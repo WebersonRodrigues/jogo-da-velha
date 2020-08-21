@@ -1,0 +1,151 @@
+/* Aqui eu posso declarar variáveis. */
+:root{
+    --color-primary:rgb(0,128,0);
+    --color-secundary:rgb(0,91,0);
+    --color-geral: #121214;
+    --font-color: rgb(255,255,250);
+}
+
+/* Aqui estou zerando o CSS do navegador */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* meu container principal */
+.container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 20vh 20vh 20vh 20vh calc(20vh - 20px);
+    background-color: var(--color-geral);
+    color: var(--font-color);
+
+    grid-template-areas:  "h  h  h"
+                          "v1 v2 v3"
+                          "v4 v5 v6"
+                          "v7 v8 v9"
+                          "f  f  f";
+
+    grid-gap:5px;
+    justify-content: center;
+    align-content: center;
+}
+
+header {
+    grid-area: h;
+    display: grid;
+    grid-gap: 5px;
+    justify-content: start;
+    align-content: center;
+}
+
+footer{
+    grid-area: f;
+    text-align: center;
+    
+}
+
+.container > div {
+    background-color: var(--color-primary);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.container > div:hover{
+    background-color: var(--color-secundary);
+    cursor: pointer;
+}
+
+/* Daqui para baixo CSS especifico */
+
+
+
+.opcoes-jogo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "hgx bg"
+                         "hgo bg";
+                       
+                         justify-content: center;
+    align-content: center;
+}
+
+
+.header-group{
+    margin-bottom: 5px;
+}
+
+.header-group #usuario-x{
+    margin-bottom: 5px;
+    grid-area: hgx;
+
+}
+.header-group #usuario-O{
+    margin-bottom: 5px;
+    grid-area: hgo;
+
+}
+
+#btn-jogar{
+    grid-area: bg;
+    width: 200px;
+    height: 90px;
+    align-self: center;
+    justify-self: end;
+    background-color: var(--color-primary);
+    border:0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--font-color);
+}
+
+#btn-jogar:hover{
+    background-color: var(--color-secundary);
+    cursor: pointer;
+}
+
+.header-group > label {
+    font-size: 22px;
+}
+
+.header-group > input {
+    padding: 5px;
+    text-transform: none;
+    text-decoration: none;
+    border:0;
+    background-color: transparent;
+    border: 1px solid  var(--color-primary);
+    color: var(--color-secundary);
+    font-weight: 800;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.painel-group{
+    font-size: 20px;
+    padding-top: 10px;
+}
+.pontos{
+    margin-left: 50px;
+    float: right;
+}
+.pontos > strong {
+    font-size: 20px;
+}
+
+.proximo-jogar{
+    margin-top: 50px;
+}
+
+.esconder{
+    display: none;
+}
+
