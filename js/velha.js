@@ -7,7 +7,7 @@
 
     let jogadorAtual = {};
     let jogadas = [];
-
+    let emJogo = false;
     let jogo = {
         jogada1: document.querySelector('.jogo-velha-1'),
         jogada2: document.querySelector('.jogo-velha-2'),
@@ -23,11 +23,13 @@
     let jogadorX = {
         nome:'',
         valor: 'X',
+        pontos: 0
     }
 
     let jogadorO = {
         nome:'',
-        valor: 'O'
+        valor: 'O',
+        pontos: 0
     }
 
     var opcoes = {
@@ -63,6 +65,7 @@
 
         jogadorAtual = jogadorX;
         painel.nomeProximoJogador.textContent = jogadorAtual.nome;
+        emJogo = true;
 
         // Aqui tenho que esconder as opções e mostrar o painel.
         opcoes.divOpcoesJogo.classList.add('esconder');
@@ -158,9 +161,10 @@
         jogadas[indice] = jogadorAtual.valor;
     }
 
+
     function jogada(e, indice){
 
-        if(!jogadorX.nome || !jogadorO.nome || e.target.textContent){
+        if(!emJogo || e.target.textContent){
             return;
         }
 
@@ -168,12 +172,12 @@
 
 
         if(validarJogada()){
-            setTimeout(()=>{
-                alert(`Parabéns, jogador ${jogadorAtual.nome} acaba de marcar ponto.`);
+           
+            setTimeout(() =>{
+                alert(`Parabéns, jogador ${jogadorAtual.nome} acaba de marcar ponto. \\o/`);
                 _atualizarPainel();
                 _reiniciarJogo();
-
-            },100)
+            }, 100)      
           
             return;
         }
@@ -210,19 +214,16 @@
 
     function _atualizarPainel(){
 
-        let pontos;
+        jogadorAtual.pontos += 1;
 
-        if(jogadorAtual.valor == 'X'){
-            pontos = parseInt(painel.pontosX.textContent);
-            pontos++;
-            painel.pontosX.textContent = pontos;
-
-            return;
+        if(jogadorAtual.valor == "X"){
+            painel.pontosX.textContent = jogadorAtual.pontos;
+        }else{
+            painel.pontosO.textContent = jogadorAtual.pontos;
         }
 
-        pontos  = parseInt(painel.pontosO.textContent);
-        pontos++;
-        painel.pontosO.textContent = pontos;
+        jogadorAtual = (jogadorAtual == jogadorX) ? jogadorO : jogadorX;
+        painel.nomeProximoJogador.textContent = jogadorAtual.nome;
     }
  
 })()
