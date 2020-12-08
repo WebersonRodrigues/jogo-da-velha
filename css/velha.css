@@ -1,7 +1,7 @@
 /* Aqui eu posso declarar variáveis. */
 :root{
-    --color-primary:rgb(0,128,0);
-    --color-secundary:rgb(0,91,0);
+    --color-primary:rgb(40,140,40);
+    --color-secundary:rgb(40,100,40);
     --color-geral: #121214;
     --font-color: rgb(255,255,250);
 }
@@ -40,12 +40,12 @@ header {
     grid-gap: 5px;
     justify-content: start;
     align-content: center;
+    margin-top: 6px;
 }
 
 footer{
     grid-area: f;
     text-align: center;
-    
 }
 
 .container > div {
@@ -53,7 +53,7 @@ footer{
     display: grid;
     justify-content: center;
     align-content: center;
-
+    border-radius: 10px;
     font-size: 50px;
     font-weight: 800;
 }
@@ -78,11 +78,6 @@ footer{
     align-content: center;
 }
 
-
-.header-group{
-    margin-bottom: 5px;
-}
-
 .header-group #usuario-x{
     margin-bottom: 5px;
     grid-area: hgx;
@@ -97,7 +92,7 @@ footer{
 #btn-jogar{
     grid-area: bg;
     width: 200px;
-    height: 90px;
+    height: 120px;
     align-self: center;
     justify-self: end;
     background-color: var(--color-primary);
@@ -113,7 +108,7 @@ footer{
 }
 
 .header-group > label {
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .header-group > input {
